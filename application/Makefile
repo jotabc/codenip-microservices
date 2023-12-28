@@ -43,7 +43,7 @@ prepare: ## prepare containers
 
 # Backend commands
 composer-install: ## install composer dependencies
-	U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_BE} composer install -no-interaction
+	U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_BE} composer install --no-interaction
 
 migrations: ## run migrations
 	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_BE} bin/console doctrine:migrations:migrate -n --allow-no-migrations
