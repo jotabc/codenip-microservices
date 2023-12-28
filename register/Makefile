@@ -42,7 +42,7 @@ prepare: ## prepare containers
 	$(MAKE) composer-install
 # Backend commands
 composer-install: ## install composer dependencies
-	U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_BE} composer install -no-interaction
+	U_ID=${UID} docker exec --user ${UID} -it ${DOCKER_BE} composer install --no-interaction
 
 be-logs: ## show backend logs
 	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_BE} tail -f var/log/dev.log
