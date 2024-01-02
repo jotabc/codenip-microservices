@@ -11,9 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FinUserByEmailAction
 {
+    private FindUserByEmailActionService $findUserByEmailActionService;
 
-  public function __construct(private FindUserByEmailActionService $findUserByEmailActionService)
+    public function __construct(FindUserByEmailActionService $findUserByEmailActionService)
   {
+      $this->findUserByEmailActionService = $findUserByEmailActionService;
   }
 
   /**

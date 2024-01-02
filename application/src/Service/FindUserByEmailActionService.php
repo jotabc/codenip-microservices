@@ -8,8 +8,11 @@ use App\Repository\UserRepository;
 class FindUserByEmailActionService
 {
 
-  public function __construct(private UserRepository $userRepository)
+    private UserRepository $userRepository;
+
+    public function __construct(UserRepository $userRepository)
   {
+      $this->userRepository = $userRepository;
   }
 
   public function __invoke(string $email): ?User
