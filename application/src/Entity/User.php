@@ -11,15 +11,17 @@ class User
     private string $name;
     private string $email;
     private ?string $password;
+    private ?string $code;
     private \DateTime $createdOn;
 
-    public function __construct(string $name, string $email)
+    public function __construct(string $name, string $email, string $code)
     {
         $this->id =Uuid::v4()->toRfc4122();
         $this->name = $name;
         $this->email = $email;
         $this->password = null;
         $this->createdOn = new \DateTime();
+        $this->code = $code;
     }
 
     public function getId(): string
@@ -42,6 +44,11 @@ class User
         return $this->password;
     }
 
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
     public function getCreatedOn(): \DateTime
     {
         return $this->createdOn;
@@ -56,6 +63,5 @@ class User
             'createdOn' => $this->createdOn->format(\DateTime::RFC3339)
         ];
     }
-
 
 }
