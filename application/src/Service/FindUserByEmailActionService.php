@@ -15,8 +15,8 @@ class FindUserByEmailActionService
       $this->userRepository = $userRepository;
     }
 
-  public function __invoke(string $email): ?User
-  {
-    return $this->userRepository->findOneBy(['email' => $email]);
-  }
+    public function __invoke(string $email): ?User
+    {
+        return $this->userRepository->findOneBy(['email' => $email]);
+    }
 }
